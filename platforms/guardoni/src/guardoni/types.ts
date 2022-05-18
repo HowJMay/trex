@@ -1,4 +1,4 @@
-import * as endpoints  from '@shared/endpoints';
+import * as endpoints from '@shared/endpoints';
 import { Logger } from '@shared/logger';
 import { DirectiveType } from '@shared/models/Directive';
 import { APIClient } from '@shared/providers/api.provider';
@@ -34,6 +34,7 @@ export const GuardoniConfig = t.strict(
     loadFor: t.number,
     advScreenshotDir: t.union([t.string, t.undefined]),
     excludeURLTag: t.union([t.string, t.undefined]),
+    tosAccepted: t.union([t.boolean, t.undefined]),
     yt: PlatformConfig,
     tk: PlatformConfig,
   },

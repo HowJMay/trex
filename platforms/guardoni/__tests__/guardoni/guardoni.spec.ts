@@ -156,6 +156,7 @@ describe('Guardoni', () => {
           headless: true,
           verbose: true,
           profileName,
+          tosAccepted: undefined,
         },
         'youtube'
       )();
