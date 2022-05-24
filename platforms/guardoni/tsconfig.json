@@ -23,11 +23,11 @@
     ],
     "paths": {
       "@shared/*": ["../../../packages/shared/src/*"],
-      "@experiment/*": ["./guardoni/tx-automate/experiment/*"],
-      "@project/*": ["./guardoni/tx-automate/project/*"],
-      "@platform/*": ["./guardoni/tx-automate/platform/*"],
-      "@storage/*": ["./guardoni/tx-automate/storage/*"],
-      "@util/*": ["./guardoni/tx-automate/util/*"],
+      "@experiment/*": ["./tx-automate/experiment/*"],
+      "@project/*": ["./tx-automate/project/*"],
+      "@platform/*": ["./tx-automate/platform/*"],
+      "@storage/*": ["./tx-automate/storage/*"],
+      "@util/*": ["./tx-automate/util/*"],
       "@yttrex/shared/*": ["../../yttrex/shared/src/*"],
       "@tktrex/shared/*": ["../../tktrex/shared/src/*"]
     }

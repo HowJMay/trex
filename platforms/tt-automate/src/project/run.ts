@@ -3,7 +3,11 @@ import { join } from 'path';
 
 import yaml from 'yaml';
 
+<<<<<<<< HEAD:platforms/tt-automate/src/project/run.ts
 import { getChromePath } from '@guardoni/guardoni/utils';
+========
+import { getChromePath } from '../../guardoni/utils';
+>>>>>>>> af7afb2e (chore: removed 'puppeteer' dep from guardoni):platforms/guardoni/src/tx-automate/project/run.ts
 
 import { generateDirectoryStructure } from '@project/init';
 
