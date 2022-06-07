@@ -2,7 +2,7 @@ import subSeconds from 'date-fns/subSeconds';
 import {
   getMaybeScreenshotFilename,
   getScreenshotName,
-} from '../src/guardoni/domainSpecific';
+} from '../src/guardoni/directives/yt.openURL';
 
 describe('Domain specific API', () => {
   describe('Screenshot path', () => {
