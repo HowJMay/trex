@@ -11,7 +11,7 @@ async function autoScroll(
   await page.evaluate(
     ({ opts }: { opts: ScrollForDirective }) => {
       return new Promise((resolve) => {
-        const distance = opts.incrementScrollBy;
+        const distance = opts.incrementScrollByPX;
 
         const timer = setInterval(() => {
           window.scrollBy(0, distance);
@@ -24,6 +24,13 @@ async function autoScroll(
     { opts } as any
   );
 }
+
+/**
+ * Directive with type `scroll`
+ *
+ * Scroll page with an increment of `incrementScrollBy` until it reaches `totalScroll`
+ *
+ */
 
 export const GetScrollFor =
   (ctx: DirectiveContext) =>
@@ -42,11 +49,11 @@ export const GetScrollFor =
             void autoScroll(page, directive).then(() => {
               ctx.logger.debug(
                 'Scrolled by %d',
-                i * directive.incrementScrollBy
+                i * directive.incrementScrollByPX
               );
             });
 
-            if (directive.totalScroll < i * directive.incrementScrollBy) {
+            if (directive.totalScroll < i * directive.incrementScrollByPX) {
               clearInterval(timer);
               resolve(undefined);
             }
