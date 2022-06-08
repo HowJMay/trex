@@ -391,7 +391,7 @@ interface YTHooksContext {
 export type GetYTHooks = (ctx: YTHooksContext) => YTHooks;
 export const GetYTHooks: GetYTHooks = (ctx) => {
   return {
-    common: {
+    openURL: {
       beforeDirectives: (p) => beforeDirectives(p, ctx.profile),
       beforeLoad,
       beforeWait,

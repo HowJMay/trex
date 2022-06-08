@@ -38,8 +38,8 @@ export const ScrollForDirectiveType = t.literal('scroll');
 export const ScrollForDirective = t.strict(
   {
     type: ScrollForDirectiveType,
-    deltaY: t.number,
-    total: t.number,
+    incrementScrollBy: t.number,
+    totalScroll: t.number,
     interval: t.union([t.number, t.undefined]),
   },
   'ScrollForDirective'

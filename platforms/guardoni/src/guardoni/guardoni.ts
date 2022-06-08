@@ -29,8 +29,8 @@ import {
   getDefaultConfig,
   getPlatformConfig,
 } from './config';
-import { GetTKHooks } from './directives/tk.hooks';
-import { GetYTHooks } from './directives/yt.openURL';
+import { GetTKHooks } from './directives/tk.directives';
+import { GetYTHooks } from './directives/yt.directives';
 import {
   concludeExperiment,
   getDirective,

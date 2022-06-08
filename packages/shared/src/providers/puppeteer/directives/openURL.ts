@@ -23,7 +23,7 @@ export const openURL =
   ): TE.TaskEither<AppError, any> => {
     return TE.tryCatch(async () => {
       try {
-        await ctx.hooks.common.beforeLoad(page, directive);
+        await ctx.hooks.openURL.beforeLoad(page, directive);
         // await throwTE(runHooks(ctx)(page, directive, 'beforeLoad'));
       } catch (error) {
         ctx.logger.debug(
@@ -61,7 +61,7 @@ export const openURL =
       }
 
       try {
-        await ctx.hooks.common.beforeWait(page, directive);
+        await ctx.hooks.openURL.beforeWait(page, directive);
       } catch (error) {
         ctx.logger.error(
           'error in beforeWait %s (%s)',
@@ -80,7 +80,7 @@ export const openURL =
 
       try {
         // debugger;
-        await ctx.hooks.common.afterWait(page, directive);
+        await ctx.hooks.openURL.afterWait(page, directive);
       } catch (error) {
         // eslint-disable-next-line no-console
         console.log(

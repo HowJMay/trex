@@ -88,7 +88,7 @@ export const operateBrowser =
   ): TE.TaskEither<AppError, string | null> => {
     return pipe(
       TE.tryCatch(
-        () => ctx.hooks.common.beforeDirectives(page),
+        () => ctx.hooks.openURL.beforeDirectives(page),
         (e) => new AppError('BeforeDirectivesError', (e as any).message, [])
       ),
       TE.chain(() =>
@@ -96,7 +96,7 @@ export const operateBrowser =
       ),
       TE.chainFirst(() =>
         TE.tryCatch(
-          () => ctx.hooks.common.completed(),
+          () => ctx.hooks.openURL.completed(),
           (e) => new AppError('Completed', (e as any).message, [])
         )
       ),

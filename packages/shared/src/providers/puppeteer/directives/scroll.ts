@@ -9,17 +9,14 @@ async function autoScroll(
   opts: ScrollForDirective
 ): Promise<void> {
   await page.evaluate(
-    ({ opts }) => {
-      return new Promise((resolve, reject) => {
-        const distance = opts.deltaY;
+    ({ opts }: { opts: ScrollForDirective }) => {
+      return new Promise((resolve) => {
+        const distance = opts.incrementScrollBy;
 
         const timer = setInterval(() => {
           window.scrollBy(0, distance);
-          // const scrollHeight = document.body.scrollHeight;
-          // const deltaScroll = scrollHeight - window.innerHeight;
 
           clearInterval(timer);
-          // timer = undefined;
           resolve(undefined);
         }, opts.interval ?? 100);
       });
@@ -43,10 +40,13 @@ export const GetScrollFor =
             ctx.logger.debug('Running for time %d', i);
 
             void autoScroll(page, directive).then(() => {
-              ctx.logger.debug('Scrolled by %d', i * directive.deltaY);
+              ctx.logger.debug(
+                'Scrolled by %d',
+                i * directive.incrementScrollBy
+              );
             });
 
-            if (directive.total < i * directive.deltaY) {
+            if (directive.totalScroll < i * directive.incrementScrollBy) {
               clearInterval(timer);
               resolve(undefined);
             }

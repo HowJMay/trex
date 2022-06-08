@@ -11,7 +11,7 @@ export interface DirectiveHooks<
     ) => Promise<any>;
   }
 > {
-  common: {
+  openURL: {
     beforeDirectives: (page: puppeteer.Page) => Promise<void>;
     beforeLoad: (
       page: puppeteer.Page,
