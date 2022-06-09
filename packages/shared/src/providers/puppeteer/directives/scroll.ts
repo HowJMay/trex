@@ -8,21 +8,18 @@ async function autoScroll(
   page: puppeteer.Page,
   opts: ScrollForDirective
 ): Promise<void> {
-  await page.evaluate(
-    ({ opts }: { opts: ScrollForDirective }) => {
-      return new Promise((resolve) => {
-        const distance = opts.incrementScrollByPX;
+  await page.evaluate(function autoScroll(opts) {
+    return new Promise((resolve) => {
+      const distance = opts.incrementScrollByPX;
 
-        const timer = setInterval(() => {
-          window.scrollBy(0, distance);
+      const timer = setInterval(() => {
+        window.scrollBy(0, distance);
 
-          clearInterval(timer);
-          resolve(undefined);
-        }, opts.interval ?? 100);
-      });
-    },
-    { opts } as any
-  );
+        clearInterval(timer);
+        resolve(undefined);
+      }, opts.interval || 100);
+    });
+  }, opts as any);
 }
 
 /**
